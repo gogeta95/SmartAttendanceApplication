@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.saurabh.smartattendanceapplication" >
+<uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".AdminPage"
+            android:label="Smart Attendance Application" >
+        </activity>
+        <activity
+            android:name=".StudentInfo"
+            android:label="Smart Attendance Application" >
+        </activity>
+        <activity
+            android:name=".FrontPage"
+            android:label="Smart Attendance Application" >
+        </activity>
+        <activity
+            android:name=".TeacherInfo"
+            android:label="Smart Attendance Application" >
+        </activity>
+        <activity
+            android:name=".TeacherPage"
+            android:label="Smart Attendance Application" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SemForm"
+            android:label="Smart Attendance Application" >
+        </activity>
+        <activity
+            android:name=".ProjectName"
+            android:label="Smart Attendance Application" >
+        </activity>
+        <activity
+            android:name=".StudentList"
+            android:label="Smart Attendance Application" >
+        </activity>
+        <activity
+            android:name=".Report"
+            android:label="Smart Attendance Application" >
+        </activity>
+        <activity android:name=".AttendanceActivity" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,175 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/a"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.saurabh.smartattendanceapplication.SemForm">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DEPARTMENT:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/btngp1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:checked="false"
+            android:text="CSE"
+            android:textSize="22sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="ECE"
+            android:textSize="22sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="IT"
+            android:textSize="22sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton6"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="EEE"
+            android:textSize="22sp" />
+
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="SEMESTERS :"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/odd_sem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/sem1"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="#55e12623"
+            android:onClick="nextActivity"
+            android:text="I"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/sem3"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:background="#55e12623"
+            android:onClick="nextActivity"
+            android:text="III"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/sem5"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:background="#55e12623"
+            android:onClick="nextActivity"
+            android:text="V"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/sem7"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:background="#55e12623"
+            android:onClick="nextActivity"
+            android:text="VII"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/even_sem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/sem2"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="#55e12623"
+            android:onClick="nextActivity"
+            android:text="II"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/sem4"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:background="#55e12623"
+            android:onClick="nextActivity"
+            android:text="IV"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/sem6"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:background="#55e12623"
+            android:onClick="nextActivity"
+            android:text="VI"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/sem8"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:background="#55e12623"
+            android:onClick="nextActivity"
+            android:text="VIII"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+</LinearLayout>

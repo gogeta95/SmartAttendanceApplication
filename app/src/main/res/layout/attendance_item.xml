@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+<LinearLayout
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp">
+<TextView
+    android:textColor="@color/abc_primary_text_material_light"
+    android:layout_weight="1"
+    android:layout_width="0dp"
+    android:id="@+id/roll_no"
+    android:layout_height="wrap_content"
+    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+    android:text="Roll No."/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/present"/>
+</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:fontFamily="sans-serif-light"
+        android:id="@+id/name"
+        android:textColor="@color/accent_material_light"
+        android:layout_marginLeft="8dp"
+        android:text="name"
+        android:layout_marginBottom="16dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#1F000000"/>
+    </LinearLayout>

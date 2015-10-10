@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Smart Attendance Application</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="user_type">
+        <item>Admin</item>
+        <item>Teacher</item>
+    </string-array>
+    <string name="title_activity_admin_page">Admin</string>
+    <string name="title_activity_student_info">Students Info</string>
+    <string name="title_activity_frntpage">frntpage</string>
+    <string name="title_activity_tchr_info">tchr_info</string>
+    <string name="title_activity_tchr_page">Smart Attendance Application</string>
+    <string name="title_activity_sem_form">Smart Attendance Application</string>
+    <string name="title_activity_project_name">Smart Attendance Application</string>
+    <string name="title_activity_studnt_list">studnt_list</string>
+    <string name="title_activity_report">report</string>
+</resources>
