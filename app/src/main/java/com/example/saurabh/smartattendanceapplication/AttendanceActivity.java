@@ -25,6 +25,7 @@ import java.util.Scanner;
 
 public class AttendanceActivity extends AppCompatActivity {
     List<StudentModel> students;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,17 +47,17 @@ public class AttendanceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 new AlertDialog.Builder(AttendanceActivity.this).setMessage("Are you Sure?")
                         .setPositiveButton("yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, final int which) {
-                            new SendDataTask().execute();
-                            }
-                            }
-                            )
+                                    @Override
+                                    public void onClick(DialogInterface dialog, final int which) {
+                                        new SendDataTask().execute();
+                                    }
+                                }
+                        )
                         .setNegativeButton("no", null)
                         .create()
                         .show();
-                        }
-            });
+            }
+        });
     }
 
     @Override
@@ -67,8 +68,10 @@ public class AttendanceActivity extends AppCompatActivity {
         } else
             return super.onOptionsItemSelected(item);
     }
-    class SendDataTask extends AsyncTask<Void,Void,Integer>{
+
+    class SendDataTask extends AsyncTask<Void, Void, Integer> {
         ProgressDialog pd;
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -80,7 +83,7 @@ public class AttendanceActivity extends AppCompatActivity {
         }
 
         @Override
-        protected  Integer doInBackground(Void... params) {
+        protected Integer doInBackground(Void... params) {
             try {
                 final JSONObject object = new JSONObject();
                 object.put("class", getIntent().getStringExtra("class"));
@@ -90,17 +93,17 @@ public class AttendanceActivity extends AppCompatActivity {
                     data.put(model.roll_no, model.present);
                 }
                 object.put("data", data);
-                Log.d("abc",object.toString());
-                final URL url = new URL("http://192.168.1.101/Attendance/SendData.php");
+                Log.d("abc", object.toString());
+                final URL url = new URL("http://"+getIntent().getStringExtra("ip")+"/Attendance/SendData.php");
                 final HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setDoOutput(true);
                 connection.setFixedLengthStreamingMode(object.toString().getBytes().length);
                 connection.getOutputStream().write(object.toString().getBytes());
                 connection.getOutputStream().flush();
-                Scanner sc= new Scanner(connection.getInputStream());
-                String s="";
-                while (sc.hasNextLine()){
-                    s+=sc.nextLine();
+                Scanner sc = new Scanner(connection.getInputStream());
+                String s = "";
+                while (sc.hasNextLine()) {
+                    s += sc.nextLine();
                 }
                 Log.d("abc", s);
                 connection.disconnect();
@@ -115,11 +118,10 @@ public class AttendanceActivity extends AppCompatActivity {
         protected void onPostExecute(Integer integer) {
             super.onPostExecute(integer);
             pd.dismiss();
-            if(integer ==1){
+            if (integer == 1) {
                 onBackPressed();
-            }
-            else {
-                Toast.makeText(AttendanceActivity.this,"Failed",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(AttendanceActivity.this, "Failed", Toast.LENGTH_SHORT).show();
             }
         }
     }

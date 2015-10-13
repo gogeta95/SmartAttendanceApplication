@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -27,6 +28,7 @@ import java.util.Iterator;
 
 
 public class SemForm extends AppCompatActivity {
+    private TextInputLayout ip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +47,14 @@ public class SemForm extends AppCompatActivity {
         ((TextView) findViewById(R.id.radioButton4)).setTypeface(typeface);
         ((TextView) findViewById(R.id.radioButton5)).setTypeface(typeface);
         ((TextView) findViewById(R.id.radioButton6)).setTypeface(typeface);
+        ip= (TextInputLayout) findViewById(R.id.ip_address);
 
     }
 
     public void nextActivity(View view) {
-        String url = "http://192.168.1.101/Attendance/GetData.php?class=";
+        String url = "http://"+ip.getEditText().getText().toString()+"/Attendance/GetData.php?class=";
         final Intent intent = new Intent(this, AttendanceActivity.class);
+        intent.putExtra("ip",ip.getEditText().getText().toString());
         switch (((RadioGroup) findViewById(R.id.btngp1)).getCheckedRadioButtonId()) {
             case R.id.radioButton3:
                 intent.putExtra("class", "CSE3");
@@ -125,7 +129,7 @@ public class SemForm extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         pd.dismiss();
-                        Log.d("abc",error.getMessage());
+                        Log.d("abc",error.toString());
                         Toast.makeText(SemForm.this, "Failed to get data!!!", Toast.LENGTH_LONG).show();
                     }
                 });
