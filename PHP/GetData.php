@@ -1,15 +1,23 @@
 <?php
-header('Content-Type: application/json');
-include('/db.php');
-$sem=$_GET['sem'];
-$class=$_GET['class'];
-$query='select * from _'.$sem.$class;
-$resultset=mysqli_query($conn,$query) or die(mysqli_error());
-$roll_list = array();
-while ($row=mysqli_fetch_array($resultset,MYSQL_NUM)) {
-	$roll_list[$row[0]]=ucwords(strtolower($row[1]));
+require_once('config.php');
+$conn=mysqli_connect(SERVER,USER,PASS,DB) or die("Connection error");
+$class=mysqli_real_escape_string($conn,$_GET['class']);
+$sem=mysqli_real_escape_string($conn,$_GET['sem']);
+date_default_timezone_set("Asia/Kolkata");
+$tablename=$class.'_'.$sem.'_'.date("m_Y");
+// $tablename='tablename';
+$query='select * from '.$tablename.' where day=\''.date('d').'\'';
+$rs=mysqli_query($conn,$query);
+if($rs&&mysqli_num_rows($rs)) {
+    die('error!');
+ }
+$query='select * from '.$class.'_'.$sem;
+$rs=mysqli_query($conn,$query);
+while($row=mysqli_fetch_array($rs,MYSQL_NUM)){
+	$response[$row[0]]=$row[1];
 }
-mysqli_free_result($resultset);
+mysqli_free_result($rs);
+header('Content-Type: application/json');
+echo json_encode($response);
 mysqli_close($conn);
-echo json_encode($roll_list);
 ?>
