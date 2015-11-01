@@ -130,7 +130,7 @@ public class SemForm extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         pd.dismiss();
                         Log.d("abc",error.toString());
-                        Toast.makeText(SemForm.this, "Failed to get data!!!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SemForm.this, "Attendance already taken.", Toast.LENGTH_LONG).show();
                     }
                 });
         MySingleton.getInstance(this).addToRequestQueue(request);

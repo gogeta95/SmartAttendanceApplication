@@ -45,15 +45,21 @@ public class AttendanceActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(AttendanceActivity.this).setMessage("Are you Sure?")
-                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                int present = 0;
+                for (StudentModel student : students) {
+                    if (student.present) {
+                        present++;
+                    }
+                }
+                new AlertDialog.Builder(AttendanceActivity.this).setMessage("Students Present: " + present + '/' + students.size())
+                        .setPositiveButton("Send Data", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, final int which) {
                                         new SendDataTask().execute();
                                     }
                                 }
                         )
-                        .setNegativeButton("no", null)
+                        .setNegativeButton("Cancel", null)
                         .create()
                         .show();
             }
@@ -119,6 +125,7 @@ public class AttendanceActivity extends AppCompatActivity {
             super.onPostExecute(integer);
             pd.dismiss();
             if (integer == 1) {
+                Toast.makeText(AttendanceActivity.this, "Success!", Toast.LENGTH_SHORT).show();
                 onBackPressed();
             } else {
                 Toast.makeText(AttendanceActivity.this, "Failed", Toast.LENGTH_SHORT).show();
